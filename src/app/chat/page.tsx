@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Chat() {
     const chatContainerRef = useRef<HTMLDivElement>(null);
     const [input, setInput] = useState<string>("");
+    //usechat 自动向/api/chat发请求
     const { messages, sendMessage } = useChat({
         onFinish: () => {
             setInput("")
@@ -63,7 +64,7 @@ export default function Chat() {
                             messages.map((message, index) => {
                                 return (
                                     <div
-                                        key={message.id + index}
+                                        key={message.id}
                                         className={`flex flex-col mt-4 ${message.role === 'user' ? 'items-end' : 'items-start'}`}>
                                         <div className={`flex ${message.role === 'user' ? 'flex-row-reverse' : ''}`}>
 
@@ -92,7 +93,7 @@ export default function Chat() {
                             })
                         )}
                 </div>
-
+                {/* 保证生成自动向下滚动 */}
                 <div ref={chatContainerRef}></div>
             </div>
 
