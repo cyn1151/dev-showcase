@@ -3,6 +3,7 @@ import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useChat } from "@ai-sdk/react";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 export default function Chat() {
@@ -14,6 +15,7 @@ export default function Chat() {
             setInput("")
         }
     })
+    const router = useRouter();
 
     const handleMessage = () => {
         if (input.trim()) {
@@ -32,6 +34,14 @@ export default function Chat() {
         if (chatContainerRef.current) {
             chatContainerRef.current.scrollIntoView({ behavior: "smooth" })
         }
+
+
+        fetch('/api/login').then(res => res.json()).then(data => {
+            if (data.code !== 200) {
+                router.push('/login')
+            }
+        })
+
     }, [messages])
 
     return (
