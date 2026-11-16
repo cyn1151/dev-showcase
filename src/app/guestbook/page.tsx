@@ -9,10 +9,11 @@ const fetchUser = async () => {
             name: 'test'
         })
     }
-    const res = await fetch('http://localhost:3000/api/user',body)
+    const res = await fetch('http://localhost:3000/api/user', body)
     const user = await res.json()
     return user
 }
+
 export default async function Guestbook() {
     const user = await fetchUser()
     console.log(user)

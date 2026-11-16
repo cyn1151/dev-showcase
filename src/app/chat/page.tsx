@@ -34,14 +34,6 @@ export default function Chat() {
         if (chatContainerRef.current) {
             chatContainerRef.current.scrollIntoView({ behavior: "smooth" })
         }
-
-
-        fetch('/api/login').then(res => res.json()).then(data => {
-            if (data.code !== 200) {
-                router.push('/login')
-            }
-        })
-
     }, [messages])
 
     return (
