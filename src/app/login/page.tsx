@@ -28,13 +28,17 @@ export default function Login() {
 
     return (
         <div className="flex justify-center items-center h-screen bg-linear-to-br from-blue-100 to-purple-100">
-            <div className="flex flex-col gap-2 p-8 w-1/2 h-auto items-center bg-white rounded-lg shadow-lg">
+            <div className="flex flex-col gap-4 p-10 pb-18 w-1/2 h-auto items-center bg-white rounded-lg shadow-lg">
                 <h1 className='text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>登录界面</h1>
-                <label className='text-gray-500 w-full text-left'>用户名</label>
-                <Input type='text' placeholder="请输入用户名" value={username} onChange={(e) => setUsername(e.target.value)} />
-                <label className='text-gray-500 w-full text-left'>密码</label>
-                <Input type="password" placeholder="请输入密码" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <Button onClick={handleLogin} size='lg' className='w-full'>登录</Button>
+                <div className="w-full">
+                    <label className='text-gray-500 w-full text-left'>用户名</label>
+                    <Input type='text' placeholder="请输入用户名" value={username} onChange={(e) => setUsername(e.target.value)} />
+                </div>
+                <div className="w-full">
+                    <label className='text-gray-500 w-full text-left'>密码</label>
+                    <Input type="password" placeholder="请输入密码" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                <Button onClick={handleLogin} size='lg' className='w-full mt-2'>登录</Button>
             </div>
         </div>
     )
